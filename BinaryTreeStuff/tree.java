@@ -1,3 +1,5 @@
+// Code from the book: "Data Structures & Algorithms in Java"
+
 import java.io.*;
 import java.util.*;
 
@@ -64,15 +66,16 @@ public class tree {
                 isLeftChild = true;
                 current = current.leftChild;
             } else {
-                isLeftChild = true;
+                isLeftChild = false;
                 current = current.rightChild;
             }
+
+            if (current == null) {
+                return false;
+            }
         }
-        
-        if (current == null) {
-            return false;
-        }
-        
+
+        // found node to delete
         if (current.leftChild == null && current.rightChild == null) {
             if (current == root) {
                 root = null;
@@ -85,9 +88,9 @@ public class tree {
             if (current == root) {
                 root = current.leftChild;
             } else if (isLeftChild) {
-                parent.leftChild == current.leftChild;
+                parent.leftChild = current.leftChild;
             } else {
-                parent.rightChild == current.leftChild;
+                parent.rightChild = current.leftChild;
             }
         } else if (current.leftChild == null) {
             if (current == root) {
@@ -98,7 +101,7 @@ public class tree {
                 parent.rightChild = current.rightChild;
             }
         } else {
-            Node Successor = getSuccessor(current);
+            node Successor = getSuccessor(current);
             if (current == root) {
                 root = Successor;
             } else if (isLeftChild) {
@@ -106,7 +109,7 @@ public class tree {
             } else {
                 parent.rightChild = Successor;
             }
-            successor.leftChild = current.leftChild;
+            Successor.leftChild = current.leftChild;
         }
         return true;
     }

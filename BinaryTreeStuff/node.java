@@ -1,3 +1,5 @@
+// Code from the book: "Data Structures & Algorithms in Java"
+
 import java.io.*;
 
 public class node {

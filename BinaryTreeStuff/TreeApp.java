@@ -1,3 +1,5 @@
+// Code from the book: "Data Structures & Algorithms in Java"
+
 import java.io.*;
 import java.util.*; 
 
@@ -31,10 +33,10 @@ public class TreeApp {
                    value = getInt();
                    theTree.insert(value, value + 0.9);
                    break;
-               case "f":
+               case 'f':
                    System.out.print("Enter value to find: ");
                    value = getInt();
-                   Node found = theTree.find(value);
+                   node found = theTree.find(value);
                    if(found != null) {
                        System.out.print("Found: ");
                        found.DisplayNode();
@@ -42,18 +44,19 @@ public class TreeApp {
                    }
                     else  {
                         System.out.print("Could not find ");
+                        System.out.print(value + "\n");
                     }
-                    System.out.print(value + "\n");
                     break;
                 case 'd':
                     System.out.print("Enter value to delete: ");
                     value = getInt();
                     boolean didDelete = theTree.delete(value);
-                    if (didDelete)
+                    if (didDelete) {
                         System.out.print("Deleted " + value + "\n");
-                    else
+                    } else {
                         System.out.print("Could not delete ");
-                    System.out.print(value + "\n");
+                        System.out.print(value + "\n");
+                    }
                     break;
                 case 't':
                     System.out.print("Enter type 1, 2 or 3: ");
