@@ -31,7 +31,7 @@ class FirstLastList {
 		if ( isEmpty() ) {
 			first = newLink;
 		} else {
-			last = newLink;
+			last.next = newLink;
 		}
 		
 		last = newLink;

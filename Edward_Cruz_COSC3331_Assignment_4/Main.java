@@ -35,9 +35,72 @@ public class Main {
 			//System.out.println(element%10);
 		}
 		
+		// add the flag to the queues and display them.	
 		for (int i = 0; i < QArray.length; i++) { 
+			QArray[i].insert(-1);			
 			QArray[i].displayQueue();
 		}
 
+		System.out.println("\n");
+
+		// second round of sorting
+		for (int i = 0; i < QArray.length; i++) {
+			while (!QArray[i].isEmpty()) {	
+				int value = QArray[i].remove();
+				if (value == -1) {break;}
+				int num = value	% 100;				
+				QArray[num / 10].insert(value);
+			}
+
+			// removes current flags and inserts it back at the end for the next rounds use.
+			QArray[i].insert(-1);
+		
+		}
+
+		//display
+		for (int i =0; i<QArray.length; i++)
+			QArray[i].displayQueue();	
+
+		System.out.println("\n");
+
+		// third round
+		for (int i = 0; i < QArray.length; i++) {
+			while (!QArray[i].isEmpty()) {
+				int value = QArray[i].remove();
+				if (value == -1)
+					continue;
+				QArray[value / 100].insert(value);
+			}	
+		}
+
+		for (int i=0; i<QArray.length; i++)
+			QArray[i].displayQueue();	
+	
+		System.out.println("\n");
 	}
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
