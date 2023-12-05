@@ -27,11 +27,8 @@ public class Main {
 		// Iterate over dataArray
 		// Add numbers to their proper queue by basing it off of their 
 		// individual digit.
-        for (int j : dataArray) {
-            QArray[j % 10].insert(j);
-        }
-		
-			
+        for (int i=0; i < dataArray.length; i++) QArray[dataArray[i] % 10].insert(dataArray[i]);
+
 
 		// add flag to populated arrays
         for (LinkQueue linkQueue : QArray) {
@@ -63,11 +60,9 @@ public class Main {
                     QArray[index].insert(value);
                 }
             }
-
-
         }
 
-		// add flag to populated arrays
+		// display round two and add a flag for round three manipulation.
         for (LinkQueue linkQueue : QArray) {
             if (!linkQueue.isEmpty()) {
                 linkQueue.insert(-1);
@@ -98,22 +93,24 @@ public class Main {
             }
         }
 
+		// display round three results
         for (LinkQueue linkQueue : QArray) linkQueue.displayQueue();
 	
 		System.out.println("\n");
 
+		// nested loop to go through every link list and update dataArray with new sorted data.
 		int i = 0;
 		for (LinkQueue queue : QArray) {
 			while (!queue.isEmpty()) {
 				int data = queue.remove();
 				dataArray[i] = data;
-				System.out.println(dataArray[i++]); // i didnt want 
+				System.out.println(dataArray[i]);
+				i++;
 			}
 		}
 
 		//for (int data : dataArray) System.out.println(data);
 	}
-
 
 }
 
