@@ -19,7 +19,8 @@ public class TreeApp {
        theTree.insert(87, 1.7);
        theTree.insert(93, 1.5);
        theTree.insert(97, 1.5);
-       
+       theTree.getMaximum(); 
+
        while (true) {
            System.out.print("Enter first letter of show, ");
            System.out.print("insert, find, delete, or traverse: ");

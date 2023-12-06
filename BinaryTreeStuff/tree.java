@@ -6,6 +6,8 @@ import java.util.*;
 public class tree {
     private node root;
     
+	public tree() { root = null; }
+
     public node find(int key) {
         node current = root;
         
@@ -219,4 +221,22 @@ public class tree {
         System.out.println(
                 "...............................................................");
     }
+
+	node maximum(node X) {
+		node temp = X;
+		if (X.rightChild != null) {
+		    temp = maximum(X.rightChild);
+		}
+		return temp;
+	}
+
+	void getMaximum() {
+		if (root != null) {
+		    node temp = maximum(root);
+			System.out.println(temp.iData + " is the biggest node");
+		} else {
+		    System.out.println("The tree is empty!!!");
+		}
+
+	}
 }
